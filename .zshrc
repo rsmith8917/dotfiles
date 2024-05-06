@@ -1,15 +1,17 @@
-# enable GIT integration
+# Enable GIT integration
 autoload -Uz vcs_info
 precmd() { vcs_info }
 
+# Configure prompt: ~/repos/dotfiles (main)$
 zstyle ':vcs_info:git:*' formats '(%b)'
-
 setopt PROMPT_SUBST
 PROMPT='%F{green}%-80<…<%~%<<%f %F{167}${vcs_info_msg_0_}%f$ '
 
+# Aliases
 alias k="kubectl"
+alias ll="ls -la"
 
-
+# GIT helper functions
 open_feature () {
     git checkout feat/$1
 }
@@ -52,8 +54,6 @@ delete_feature () {
         git branch --list 'feat/*'
     fi
 }
-
-
 
 list_features () {
     git branch --list 'feat/*'
