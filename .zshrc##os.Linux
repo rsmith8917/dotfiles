@@ -1,0 +1,43 @@
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Theme
+ZSH_THEME="robbyrussell"
+
+# Plugins
+plugins=(
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+	git
+	kubectl
+	archlinux
+	npm
+	nvm
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Docker CLI completions
+if [ -d "$HOME/.docker/completions" ]; then
+	fpath=($HOME/.docker/completions $fpath)
+	autoload -Uz compinit
+	compinit
+fi
+
+# Go
+export PATH="$HOME/go/bin:$PATH"
+
+# Python
+alias python=python3
+alias pip=pip3
+
+# Teleport
+export TELEPORT_CDN_BASE_URL=https://cdn.teleport.dev
+
+# Local environment
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
