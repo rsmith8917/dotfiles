@@ -50,3 +50,4 @@ window-padding-color = extend
 window-width = 240
 window-height = 80
 keybind = shift+enter=text:\x1b\r
+theme = "TokyoNight Night"
