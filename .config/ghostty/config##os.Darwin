@@ -50,5 +50,6 @@ font-size = 13.5
 theme = "TokyoNight Night"
 keybind = shift+enter=text:\n
 window-padding-color = extend
+window-padding-balance = true
 window-padding-y = 0
 window-padding-x = 0
