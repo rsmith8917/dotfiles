@@ -50,6 +50,13 @@ return {
                         "--no-ignore-vcs",
                     },
                     path_display = { "truncate" },
+                    preview = {
+                        -- Disable treesitter in preview: telescope's previewer
+                        -- calls vim.treesitter.language.ft_to_lang, which was
+                        -- removed in Neovim 0.12 (renamed to get_lang). Falls
+                        -- back to regex highlighting in preview buffers.
+                        treesitter = false,
+                    },
                     mappings = {
                         i = {
                             ["<C-j>"] = actions.move_selection_next,
